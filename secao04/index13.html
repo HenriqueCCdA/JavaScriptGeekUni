@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Seção 04 - Aula 13</title>
+    </head>
+    <body>
+        <h1>Seção 04 - Aula 13</title>
+
+        <script>
+            // Escopo de variáveis
+
+            function somar(num1, num2) {
+                // variável local (só é reconhecida dentro do bloco da funçao)
+                var valor = 5; // variável local
+                return valor + num1 + num2;
+            }
+
+            for(var i = 0; i < 5; i++){
+                var outra = 5; // variável global
+                console.log(i * outra);
+            }
+
+            console.log(somar(4, 6));
+
+            // console.log(valor);
+
+            console.log(outra);
+            console.log(i);
+
+            for(var j = 0; j < 5; j++){
+                let uma = 12; // variável local
+                console.log(j * uma);
+            }
+
+            console.log(uma); // ReferenceError
+            console.log(j);
+
+
+        </script>
+    </body>
+</html>
