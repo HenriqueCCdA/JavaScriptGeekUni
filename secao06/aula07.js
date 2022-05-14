@@ -40,3 +40,5 @@ mostrar(6, 9, somar);
 mostrar(3, 6, function(n1, n2){
     return n1 + n2;
 });
+
+mostrar(3, 6, (v1, v2) => v1 * v2);
