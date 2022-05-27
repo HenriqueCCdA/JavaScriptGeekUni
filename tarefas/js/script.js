@@ -10,13 +10,7 @@ let btn = document.querySelector('#botao');
 
 let lista = document.querySelector('#lista');
 
-let tarefas = [
-    'Jogar GTA5',
-    'Estudar Python',
-    'Estudar JavaScript',
-    'Ver um filme',
-    'Ler um livro'
-];
+let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
 // card
 let card = document.querySelector('.card');
@@ -71,6 +65,9 @@ btn.onclick = function(){
         // Limpar mensagens de erro
         removerSpans();
 
+        // Salva os novos dados no banco de ados
+        salvarDadosStorage()
+
     }else{
         // Limpar mensagens de erro
         removerSpans();
@@ -99,10 +96,19 @@ function removerSpans(){
 
 }
 
-function  deletarTarefa(tar){
+function deletarTarefa(tar){
     // Remove a tarefa do array
     tarefas.splice(tarefas.indexOf(tar.textContent), 1);
 
     // Renderiza novamente a tela
     renderizarTarefas();
+
+    // Salva os novos dados no banco de ados
+    salvarDadosStorage()
+}
+
+function salvarDadosStorage(){
+
+    // Todo navegador web possui esta capacidade
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
 }
