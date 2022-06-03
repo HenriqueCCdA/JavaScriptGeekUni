@@ -1,11 +1,14 @@
 module.exports = {
-    entry: "./main.js",
+    entry: "./src/main.js",
     output: {
-        path: __dirname,
-        filename: './bundle.js',
+        path: __dirname + '/public',
+        filename: 'bundle.js',
     },
-    module:{
-        rules:[
+    devServer: {
+        static: __dirname + '/public',
+    },
+    module: {
+        rules: [
             {
                 test:/\.js$/,
                 exclude: /node_modules/,
